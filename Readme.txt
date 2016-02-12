@@ -1,13 +1,17 @@
 To integrate DataLinker to your application follow these steps:
 
-1. Drag&Drop "DataLinkerAPI" folder to your xCode project navigator.
+1. Download "DataLinker integration library"
+3. Drag&Drop "DataLinkerAPI" folder to your xCode project navigator.
 2. Check "Copy items if needed" checkbox.
 3. Select "Create groups" option and press "Finish".
-4. Import header in your project like that:
+4. Import header in your project:
 	#import "DataLinkerAPI.h"
-5. Your'e good to go. Check our example application to see how it works.
+5. Your'e good to go. 
+
+
+
+Check our example application to see how it works.
 	- DataLinkerIntegrationController class handles everything related to integration 	with DataLinker.
 
 
-
-Please see DataLinkerAPI/DataLinkerAPI.h for more information about available methods.
+Please see DataLinkerAPI.h for more information about available methods.
