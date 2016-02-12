@@ -10,3 +10,4 @@ To integrate DataLinker to your application follow these steps:
 
 
 Please see DataLinkerAPI/DataLinkerAPI.h for more information about available methods.
+	- DataLinkerIntegrationController class handles all integration with DataLinker.
