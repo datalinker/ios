@@ -1,4 +1,4 @@
-To integrate DataLinker to your application follow these steps:
+**To install DataLinkerAPI to your project follow these steps:**
 
 1. Download "DataLinker integration library"
 3. Drag&Drop "DataLinkerAPI" folder to your xCode project navigator.
@@ -9,14 +9,16 @@ To integrate DataLinker to your application follow these steps:
 5. Your'e good to go. 
 
 
-First of all you need to initiate DataLinkerAPI instance like this:
+
+**Usage guide:**
+1. First of all you need to initiate DataLinkerAPI instance like this:
 	DataLinkerAPI *dataLinkerManager = [[DataLinkerAPI alloc] initWithCallbackURLScheme:yourCustomURLScheme];
 
 * - for more information about URL schemes please see Apple documentation of Inter-App communication:
-https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html
+https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html*
 
 
-To establish connection with DataLinker please use this method of DataLinkerAPI instance:
+2.To establish connection with DataLinker generate URL using this method of DataLinkerAPI instance:
 - (NSURL*)urlForConnectingToDataLinkerWithUUID:(NSString*)pid 
 				      baudRate:(int)brate
 				   warnVoltage:(int)wvoltage 
@@ -30,9 +32,15 @@ where:
 
 
 
-After connection was established DataLinker App will switch back to your app with some response information. To access that information you either need to manipulate URL from your AppDelegate's method "- (BOOL)application:openURL:options:" and retrieve the information yourself or to pass that URL to your initialized DataLinkerAPI instance via function "- (NSDictionary*)dataLinkerResponseWithURL:(NSURL*)url" like this:
+3.Then open it using [[UIApplication sharedApplication] openURL:]
+
+
+
+4.After connection was established DataLinker App will switch back to your app with some response information. To access that information you either need to manipulate URL from your AppDelegate's method "- (BOOL)application:openURL:options:" and retrieve the information yourself or to pass that URL to your initialized DataLinkerAPI instance via function "- (NSDictionary*)dataLinkerResponseWithURL:(NSURL*)url" like this:
 	NSDictionary *responseDict = [yourDataLinkerAPIInstance dataLinkerResponseWithURL:url];
 It will return you dictionary with all response data. For more information about returned dictionary please see DataLinkerAPI.h.
+
+5.The last step is to start TCP socket with the port that was specified in DataLinker Server response to your app.
 
 
 Check our example application to see how it works.
