@@ -14,8 +14,8 @@
 1. First of all you need to initiate DataLinkerAPI instance like this:
 	DataLinkerAPI *dataLinkerManager = [[DataLinkerAPI alloc] initWithCallbackURLScheme:yourCustomURLScheme];
 
-* - for more information about URL schemes please see Apple documentation of Inter-App communication:
-https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html*
+_* - for more information about URL schemes please see Apple documentation of Inter-App communication:
+https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html_
 
 
 2.To establish connection with DataLinker generate URL using this method of DataLinkerAPI instance:
