@@ -13,18 +13,17 @@
 **User guide:**
 
 1. First of all you need to initiate DataLinkerAPI instance like this:
-	DataLinkerAPI *dataLinkerManager = [[DataLinkerAPI alloc] initWithCallbackURLScheme:yourCustomURLScheme];
+>DataLinkerAPI *dataLinkerManager = [[DataLinkerAPI alloc] initWithCallbackURLScheme:yourCustomURLScheme];
 
 _* - for more information about URL schemes please see Apple documentation of Inter-App communication:
 https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html_
 
 
 2.To establish connection with DataLinker generate URL using this method of DataLinkerAPI instance:
-
-_- (NSURL*)urlForConnectingToDataLinkerWithUUID:(NSString*)pid 
+>- (NSURL*)urlForConnectingToDataLinkerWithUUID:(NSString*)pid 
 				      baudRate:(int)brate
 				   warnVoltage:(int)wvoltage 
-				       tcpPort:(int)port;_
+				       tcpPort:(int)port;
 
 
 where:
@@ -34,12 +33,12 @@ where:
 	"port" is TCP port over which you want to receive NMEA stream. (If not specified DataLinker Server app will set it to default value (2000))
 
 
-3.Then open it using [[UIApplication sharedApplication] openURL:]
+3.Then open it using 
+>[[UIApplication sharedApplication] openURL:]
 
 
 4.After connection was established DataLinker App will switch back to your app with some response information. To access that information you either need to manipulate URL from your AppDelegate's method _"- (BOOL)application:openURL:options:"_ and retrieve the information yourself or to pass that URL to your initialized DataLinkerAPI instance via function _"- (NSDictionary*)dataLinkerResponseWithURL:(NSURL*)url"_ like this:
-
-	_NSDictionary *responseDict = [yourDataLinkerAPIInstance dataLinkerResponseWithURL:url];_
+	>NSDictionary *responseDict = [yourDataLinkerAPIInstance dataLinkerResponseWithURL:url];
 
 It will return you dictionary with all response data. For more information about returned dictionary please see DataLinkerAPI.h.
 
