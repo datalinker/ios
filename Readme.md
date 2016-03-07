@@ -21,10 +21,7 @@ https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOS
 
 **2.** To establish connection with DataLinker generate URL using this method of DataLinkerAPI instance:
 ```
-- (NSURL*)urlForConnectingToDataLinkerWithUUID:(NSString*)pid 
-baudRate:(int)brate 
-warnVoltage:(int)wvoltage 
-tcpPort:(int)port;
+- (NSURL*)urlForConnectingToDataLinkerWithUUID:(NSString*)pid baudRate:(int)brate warnVoltage:(int)wvoltage tcpPort:(int)port;
 ```
 where
 
