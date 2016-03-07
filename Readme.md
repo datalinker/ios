@@ -10,7 +10,8 @@
 
 
 
-**Usage guide:**
+**User guide:**
+
 1. First of all you need to initiate DataLinkerAPI instance like this:
 	DataLinkerAPI *dataLinkerManager = [[DataLinkerAPI alloc] initWithCallbackURLScheme:yourCustomURLScheme];
 
