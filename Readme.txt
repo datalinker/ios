@@ -9,9 +9,31 @@ To integrate DataLinker to your application follow these steps:
 5. Your'e good to go. 
 
 
+First of all you need to initiate DataLinkerAPI instance like this:
+	DataLinkerAPI *dataLinkerManager = [[DataLinkerAPI alloc] initWithCallbackURLScheme:yourCustomURLScheme];
+
+* - for more information about URL schemes please see Apple documentation of Inter-App communication:
+https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html
+
+
+To establish connection with DataLinker please use this method of DataLinkerAPI instance:
+- (NSURL*)urlForConnectingToDataLinkerWithUUID:(NSString*)pid 
+				      baudRate:(int)brate
+				   warnVoltage:(int)wvoltage 
+				       tcpPort:(int)port;
+
+where:
+	"pid" is peripheral, which you want to connect to, identifier. (If you pass empty value, if possible DataLinker Server app will connect to last connected DataLinker, if not it will allow user to select DataLinker manually)
+	"brate" is desired baudRate you want to set for peripheral. (If not specified DataLinker Server app will set it to default value (19200))
+	"wvoltage" is desired warn. voltage you want to set for peripheral. (If not specified DataLinker Server app will set it to default value (8))
+	"port" is TCP port over which you want to receive NMEA stream. (If not specified DataLinker Server app will set it to default value (2000))
+
+
+
+After connection was established DataLinker App will switch back to your app with some response information. To access that information you either need to manipulate URL from your AppDelegate's method "- (BOOL)application:openURL:options:" and retrieve the information yourself or to pass that URL to your initialized DataLinkerAPI instance via function "- (NSDictionary*)dataLinkerResponseWithURL:(NSURL*)url" like this:
+	NSDictionary *responseDict = [yourDataLinkerAPIInstance dataLinkerResponseWithURL:url];
+It will return you dictionary with all response data. For more information about returned dictionary please see DataLinkerAPI.h.
+
 
 Check our example application to see how it works.
-	- DataLinkerIntegrationController class handles everything related to integration 	with DataLinker.
-
-
-Please see DataLinkerAPI.h for more information about available methods.
+	- DataLinkerIntegrationController class handles everything related to integration with DataLinker.
