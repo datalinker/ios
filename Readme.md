@@ -20,10 +20,12 @@ https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOS
 
 
 2.To establish connection with DataLinker generate URL using this method of DataLinkerAPI instance:
-- (NSURL*)urlForConnectingToDataLinkerWithUUID:(NSString*)pid 
+
+_- (NSURL*)urlForConnectingToDataLinkerWithUUID:(NSString*)pid 
 				      baudRate:(int)brate
 				   warnVoltage:(int)wvoltage 
-				       tcpPort:(int)port;
+				       tcpPort:(int)port;_
+
 
 where:
 	"pid" is peripheral, which you want to connect to, identifier. (If you pass empty value, if possible DataLinker Server app will connect to last connected DataLinker, if not it will allow user to select DataLinker manually)
@@ -32,14 +34,15 @@ where:
 	"port" is TCP port over which you want to receive NMEA stream. (If not specified DataLinker Server app will set it to default value (2000))
 
 
-
 3.Then open it using [[UIApplication sharedApplication] openURL:]
 
 
+4.After connection was established DataLinker App will switch back to your app with some response information. To access that information you either need to manipulate URL from your AppDelegate's method _"- (BOOL)application:openURL:options:"_ and retrieve the information yourself or to pass that URL to your initialized DataLinkerAPI instance via function _"- (NSDictionary*)dataLinkerResponseWithURL:(NSURL*)url"_ like this:
 
-4.After connection was established DataLinker App will switch back to your app with some response information. To access that information you either need to manipulate URL from your AppDelegate's method "- (BOOL)application:openURL:options:" and retrieve the information yourself or to pass that URL to your initialized DataLinkerAPI instance via function "- (NSDictionary*)dataLinkerResponseWithURL:(NSURL*)url" like this:
-	NSDictionary *responseDict = [yourDataLinkerAPIInstance dataLinkerResponseWithURL:url];
+	_NSDictionary *responseDict = [yourDataLinkerAPIInstance dataLinkerResponseWithURL:url];_
+
 It will return you dictionary with all response data. For more information about returned dictionary please see DataLinkerAPI.h.
+
 
 5.The last step is to start TCP socket with the port that was specified in DataLinker Server response to your app.
 
