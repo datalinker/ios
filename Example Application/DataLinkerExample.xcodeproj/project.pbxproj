@@ -17,9 +17,8 @@
 		70A38BFA1C6A1D9C002B7CF6 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70A38BF91C6A1D9C002B7CF6 /* CoreBluetooth.framework */; };
 		70A38C011C6C5D59002B7CF6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70A38C001C6C5D59002B7CF6 /* Default-568h@2x.png */; };
 		70BD17FB1C6C805F006E5242 /* TCPServerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BD17FA1C6C805F006E5242 /* TCPServerController.m */; };
-		70BD18281C6CC748006E5242 /* libDataLinkerAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70BD18261C6CC748006E5242 /* libDataLinkerAPI.a */; };
-		70BD18291C6CC748006E5242 /* libDataLinkerAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70BD18271C6CC748006E5242 /* libDataLinkerAPI.a */; };
 		70BD18301C6DCCD0006E5242 /* DataLinkerIntegrationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BD182F1C6DCCD0006E5242 /* DataLinkerIntegrationController.m */; };
+		70E942E61C8DA04F00EFCB76 /* libDataLinkerAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70E942E51C8DA04F00EFCB76 /* libDataLinkerAPI.a */; };
 		FE109818AA9344DA857B1099 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A2FE9103FABC588A26FEEE /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -41,11 +40,10 @@
 		70A38C001C6C5D59002B7CF6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		70BD17F91C6C805F006E5242 /* TCPServerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPServerController.h; sourceTree = "<group>"; };
 		70BD17FA1C6C805F006E5242 /* TCPServerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCPServerController.m; sourceTree = "<group>"; };
-		70BD18251C6CC748006E5242 /* DataLinkerAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataLinkerAPI.h; sourceTree = "<group>"; };
-		70BD18261C6CC748006E5242 /* libDataLinkerAPI.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libDataLinkerAPI.a; sourceTree = "<group>"; };
-		70BD18271C6CC748006E5242 /* libDataLinkerAPI.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libDataLinkerAPI.a; sourceTree = "<group>"; };
 		70BD182E1C6DCCD0006E5242 /* DataLinkerIntegrationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataLinkerIntegrationController.h; sourceTree = "<group>"; };
 		70BD182F1C6DCCD0006E5242 /* DataLinkerIntegrationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataLinkerIntegrationController.m; sourceTree = "<group>"; };
+		70E942E41C8DA04F00EFCB76 /* DataLinkerAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataLinkerAPI.h; sourceTree = "<group>"; };
+		70E942E51C8DA04F00EFCB76 /* libDataLinkerAPI.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libDataLinkerAPI.a; sourceTree = "<group>"; };
 		B09597AC19B00D343730E694 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E7A2FE9103FABC588A26FEEE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -56,8 +54,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				70A38BFA1C6A1D9C002B7CF6 /* CoreBluetooth.framework in Frameworks */,
-				70BD18291C6CC748006E5242 /* libDataLinkerAPI.a in Frameworks */,
-				70BD18281C6CC748006E5242 /* libDataLinkerAPI.a in Frameworks */,
+				70E942E61C8DA04F00EFCB76 /* libDataLinkerAPI.a in Frameworks */,
 				FE109818AA9344DA857B1099 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -85,7 +82,7 @@
 		70A38BD31C69FFCF002B7CF6 = {
 			isa = PBXGroup;
 			children = (
-				70BD18221C6CC748006E5242 /* DataLinkerAPI */,
+				70E942E11C8DA04F00EFCB76 /* DataLinkerAPI */,
 				70A38BF91C6A1D9C002B7CF6 /* CoreBluetooth.framework */,
 				70A38BDE1C69FFCF002B7CF6 /* DataLinkerExample */,
 				70A38BDD1C69FFCF002B7CF6 /* Products */,
@@ -133,28 +130,27 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		70BD18221C6CC748006E5242 /* DataLinkerAPI */ = {
+		70E942E11C8DA04F00EFCB76 /* DataLinkerAPI */ = {
 			isa = PBXGroup;
 			children = (
-				70BD18231C6CC748006E5242 /* include */,
-				70BD18271C6CC748006E5242 /* libDataLinkerAPI.a */,
+				70E942E21C8DA04F00EFCB76 /* include */,
+				70E942E51C8DA04F00EFCB76 /* libDataLinkerAPI.a */,
 			);
 			path = DataLinkerAPI;
 			sourceTree = "<group>";
 		};
-		70BD18231C6CC748006E5242 /* include */ = {
+		70E942E21C8DA04F00EFCB76 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				70BD18241C6CC748006E5242 /* DataLinkerAPI */,
-				70BD18261C6CC748006E5242 /* libDataLinkerAPI.a */,
+				70E942E31C8DA04F00EFCB76 /* DataLinkerAPI */,
 			);
 			path = include;
 			sourceTree = "<group>";
 		};
-		70BD18241C6CC748006E5242 /* DataLinkerAPI */ = {
+		70E942E31C8DA04F00EFCB76 /* DataLinkerAPI */ = {
 			isa = PBXGroup;
 			children = (
-				70BD18251C6CC748006E5242 /* DataLinkerAPI.h */,
+				70E942E41C8DA04F00EFCB76 /* DataLinkerAPI.h */,
 			);
 			path = DataLinkerAPI;
 			sourceTree = "<group>";

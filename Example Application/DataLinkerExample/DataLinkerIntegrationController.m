@@ -111,5 +111,7 @@
         
         [(ViewController*)[[UIApplication sharedApplication] delegate].window.rootViewController updateInterfaceAfterSuccessfulDisonnectionFromPeripheralWithId:peripheralUUID];
     }
+    
+    NSLog(@"Response dict = %@; url = %@;", responseDictionary, url);
 }
 @end

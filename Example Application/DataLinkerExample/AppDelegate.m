@@ -18,18 +18,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-//    NSURL *url = [NSURL URLWithString:@"datalinker://hello world&return=testapp"];
-//    UIApplication *ourApplication = [UIApplication sharedApplication];
-//    NSString *URLEncodedText = [@"connectTo:781DEBC4-0B6B-2502-4E19-23EA028E7B14//testApp:success=" stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-//    NSString *ourPath = [@"datalinker://" stringByAppendingString:URLEncodedText];
-//    NSURL *ourURL = [NSURL URLWithString:ourPath];
-//    if ([ourApplication canOpenURL:ourURL]) {
-//        [ourApplication openURL:ourURL];
-//    }
-//    else {
-//        NSLog(@"Receiver Not Found");
-//        NSLog(@"The Receiver App is not installed. It must be installed to send text.");
-//    }
     return YES;
 }
 
