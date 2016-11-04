@@ -1,0 +1,6 @@
+framework module DataLinker {
+  umbrella header "DataLinker.h"
+
+  export *
+  module * { export * }
+}
