@@ -62,6 +62,42 @@ dataLink.delegate = self;
 ### 5. Disconnecting from DataLinker
 To disconnect from _**DataLinker**_ you have to call `+(void)disconnect` method of _**DataLinkerAPI**_. It wil switch to _**DataLinker Server**_ app, disconnect from connected DataLinker and return to your app with disconnection response.
 
+### 6. Appstore validation errors
+Because our framework is built so that you could run it on both, real device and simulator, it contains __*x86_64*__ architecture which is unsupported in appstore builds, while validating your binary you could get errors like these:
+![Image of Yaktocat](http://oi68.tinypic.com/15qswoj.jpg)
+
+The solution would be to add new __*Run Script*__ phase to your target, which would scan the frameworks, and remove architectures that are not needed for AppStore build. We provide you the script that does that below, but you might want to change it according to your needs.
+```
+APP_PATH="${TARGET_BUILD_DIR}/${WRAPPER_NAME}"
+
+# This script loops through the frameworks embedded in the application and
+# removes unused architectures.
+find "$APP_PATH" -name '*.framework' -type d | while read -r FRAMEWORK
+do
+FRAMEWORK_EXECUTABLE_NAME=$(defaults read "$FRAMEWORK/Info.plist" CFBundleExecutable)
+FRAMEWORK_EXECUTABLE_PATH="$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME"
+echo "Executable is $FRAMEWORK_EXECUTABLE_PATH"
+
+EXTRACTED_ARCHS=()
+
+for ARCH in $ARCHS
+do
+echo "Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME"
+lipo -extract "$ARCH" "$FRAMEWORK_EXECUTABLE_PATH" -o "$FRAMEWORK_EXECUTABLE_PATH-$ARCH"
+EXTRACTED_ARCHS+=("$FRAMEWORK_EXECUTABLE_PATH-$ARCH")
+done
+
+echo "Merging extracted architectures: ${ARCHS}"
+lipo -o "$FRAMEWORK_EXECUTABLE_PATH-merged" -create "${EXTRACTED_ARCHS[@]}"
+rm "${EXTRACTED_ARCHS[@]}"
+
+echo "Replacing original executable with thinned version"
+rm "$FRAMEWORK_EXECUTABLE_PATH"
+mv "$FRAMEWORK_EXECUTABLE_PATH-merged" "$FRAMEWORK_EXECUTABLE_PATH"
+
+done
+```
 
 ## Where to go from here?
 If you still have questions, please either review our example application, or send me a letter to julius@xplicity.com.
+
